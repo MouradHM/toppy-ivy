@@ -1,6 +1,6 @@
 {
   "name": "toppy-app-ivy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Overlay library for Angular 7+ compatible with Ivy",
   "keywords": [
     "angular",

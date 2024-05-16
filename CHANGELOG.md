@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/MouradHM/toppy-ivy/compare/v1.0.0...v1.0.1) (2024-05-16)
+
+
+### Bug Fixes
+
+* Ivy partial compilation ([8aa3951](https://github.com/MouradHM/toppy-ivy/commit/8aa39515ba03ce615273fd176ba31586402733a8))
+
 # 1.0.0 (2024-05-16)
 
 

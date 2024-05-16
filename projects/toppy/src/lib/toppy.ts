@@ -1,4 +1,4 @@
-import { ApplicationRef, Injectable, Injector } from '@angular/core';
+import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
 import { DefaultConfig } from './config';
 import { ContentData, ContentProps, ContentType, Inputs, InsidePlacement, TID, ToppyConfig } from './models';
 import { GlobalPosition } from './position';
@@ -41,15 +41,15 @@ export class Toppy {
   create(key: string = null): ToppyControl {
     this.tid = this.inputs.tid = key || createId();
 
-    const injector = Injector.create({
-      providers: [
+    const injector = Injector.create(
+      [
         {
           provide: ToppyControl,
-          deps: [ApplicationRef, Injector]
+          deps: [ApplicationRef, ComponentFactoryResolver, Injector]
         }
       ],
-      parent: this.injector
-    });
+      this.injector
+    );
 
     const tc = injector.get(ToppyControl);
     if (Toppy.controls[this.tid]) {

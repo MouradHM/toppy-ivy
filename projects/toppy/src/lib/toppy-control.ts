@@ -1,6 +1,9 @@
 import {
   ApplicationRef,
+  ComponentFactory,
+  ComponentFactoryResolver,
   ComponentRef,
+  Injector,
   ViewContainerRef,
   ViewRef
 } from '@angular/core';
@@ -16,18 +19,20 @@ export class ToppyControl {
   config: ToppyConfig;
   content: Content;
   tid: TID;
-  comp: ToppyComponent;
   updateTextContent: Subject<string> = new Subject();
   hostView: ViewRef;
+  comp: ToppyComponent;
   compRef: ComponentRef<ToppyComponent>;
 
   private viewEl: HTMLElement;
   private isOpen = false;
+  private compFac: ComponentFactory<ToppyComponent>;
   private die: Subject<1> = new Subject();
 
   constructor(
-    private appRef: ApplicationRef,
-    private viewContainerRef: ViewContainerRef
+    private appRef: ApplicationRef, 
+    private compResolver: ComponentFactoryResolver,
+    private injector: Injector
   ) {
     this.updateTextContent.subscribe(content => {
       if (this.isOpen) this.comp.updateTextContent(content);
@@ -123,7 +128,8 @@ export class ToppyControl {
 
   private attach(): void {
     /* create component */
-    this.compRef = this.viewContainerRef.createComponent(ToppyComponent);
+    this.compFac = this.compResolver.resolveComponentFactory(ToppyComponent);
+    this.compRef = this.compFac.create(this.injector);
     this.comp = this.compRef.instance;
 
     /* assign props */

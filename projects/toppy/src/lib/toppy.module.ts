@@ -4,6 +4,7 @@ import { ToppyComponent } from './toppy.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ToppyComponent]
+  declarations: [ToppyComponent],
+  entryComponents: [ToppyComponent]
 })
-export class ToppyModule {}
+export class ToppyModule { }

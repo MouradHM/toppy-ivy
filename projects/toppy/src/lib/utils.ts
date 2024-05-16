@@ -16,7 +16,7 @@ export function getContent(data: ContentData, props: ContentProps = {}): Content
 export function createId() {
   return Math.random()
     .toString(36)
-    .substr(2, 5);
+    .substring(2, 5);
 }
 
 /* html dom utils */

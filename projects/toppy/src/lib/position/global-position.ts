@@ -17,7 +17,7 @@ export class GlobalPosition extends ToppyPosition {
     this.updateConfig(config);
   }
   getPositions(hostEl?: HTMLElement) {
-    const host = hostEl.getBoundingClientRect() as any;
+    const host = hostEl!.getBoundingClientRect() as any;
     const src = {
       width: window['innerWidth'],
       height: window['innerHeight']
@@ -27,7 +27,7 @@ export class GlobalPosition extends ToppyPosition {
     w = setWH(src, host, 'width', w);
     h = setWH(src, host, 'height', h);
 
-    const props = this.calc(this.config.placement, src, host);
+    const props = this.calc(this.config.placement!, src, host);
     return {
       ...props,
       width: w,

@@ -20,7 +20,6 @@ export class TestComponent {
 
 @NgModule({
   declarations: [TestComponent],
-  entryComponents: [TestComponent],
   exports: [TestComponent]
 })
 export class TestModule {}

@@ -1,3 +1,11 @@
+## [3.0.0](https://github.com/MouradHM/toppy-ivy/compare/v2.3.4...v3.0.0) (2024-05-16)
+
+
+### BREAKING CHANGES
+
+* Updated to Angular 17 Ivy
+
+
 ## [2.3.4](https://github.com/lokesh-coder/toppy/compare/v2.3.3...v2.3.4) (2019-07-31)
 
 

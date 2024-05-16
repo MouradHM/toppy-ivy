@@ -1,12 +1,10 @@
 import {
   ApplicationRef,
-  ComponentFactory,
-  ComponentFactoryResolver,
   ComponentRef,
-  Injector,
+  ViewContainerRef,
   ViewRef
 } from '@angular/core';
-import { animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject } from 'rxjs';
+import { Observable, Subject, animationFrameScheduler, fromEvent, merge as mergeObs } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, observeOn, skipWhile, takeUntil, tap } from 'rxjs/operators';
 import { Content, ContentData, ContentProps, TID, ToppyConfig, ToppyEventName } from './models';
 import { ToppyPosition } from './position/position';
@@ -25,13 +23,11 @@ export class ToppyControl {
 
   private viewEl: HTMLElement;
   private isOpen = false;
-  private compFac: ComponentFactory<ToppyComponent>;
   private die: Subject<1> = new Subject();
 
   constructor(
     private appRef: ApplicationRef,
-    private compResolver: ComponentFactoryResolver,
-    private injector: Injector
+    private viewContainerRef: ViewContainerRef
   ) {
     this.updateTextContent.subscribe(content => {
       if (this.isOpen) this.comp.updateTextContent(content);
@@ -65,7 +61,7 @@ export class ToppyControl {
   }
 
   onEscClick(): Observable<any> {
-    return fromEvent(BodyEl, 'keydown').pipe(
+    return fromEvent(BodyEl!, 'keydown').pipe(
       takeUntil(this.die),
       skipWhile(() => !this.config.closeOnEsc),
       filter((e: any) => (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) && e.target.nodeName === 'BODY'),
@@ -122,13 +118,12 @@ export class ToppyControl {
 
   private isNotHostElement(el): boolean {
     const wrapperEl = this.viewEl.querySelector('.t-wrapper');
-    return el !== wrapperEl && !wrapperEl.contains(el);
+    return el !== wrapperEl && !wrapperEl?.contains(el);
   }
 
   private attach(): void {
     /* create component */
-    this.compFac = this.compResolver.resolveComponentFactory(ToppyComponent);
-    this.compRef = this.compFac.create(this.injector);
+    this.compRef = this.viewContainerRef.createComponent(ToppyComponent);
     this.comp = this.compRef.instance;
 
     /* assign props */
@@ -140,7 +135,7 @@ export class ToppyControl {
     this.hostView = this.compRef.hostView;
     this.appRef.attachView(this.hostView);
     this.viewEl = (this.hostView as any).rootNodes[0];
-    BodyEl.appendChild(this.viewEl);
+    BodyEl!.appendChild(this.viewEl);
   }
 
   private dettach(): void {

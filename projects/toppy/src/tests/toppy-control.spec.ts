@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ApplicationRef, Component, ComponentFactoryResolver, DebugElement, Injector, NgModule } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ApplicationRef, Component, DebugElement, Injector, NgModule } from '@angular/core';
+import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Subject, Subscription } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { DefaultConfig } from 'toppy/lib/config';
@@ -21,7 +21,6 @@ export class TestComponent {
 @NgModule({
   imports: [CommonModule],
   declarations: [TestComponent, ToppyComponent],
-  entryComponents: [TestComponent, ToppyComponent],
   exports: [TestComponent, ToppyComponent]
 })
 export class TestModule {}
@@ -32,11 +31,11 @@ describe('@ ToppyControl', () => {
   let fixture: ComponentFixture<TestComponent> = null;
   let die: Subject<boolean>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [TestModule, CommonModule],
       providers: [
-        { provide: ToppyControl, useClass: ToppyControl, deps: [ApplicationRef, ComponentFactoryResolver, Injector] }
+        { provide: ToppyControl, useClass: ToppyControl, deps: [ApplicationRef, Injector] }
       ]
     }).compileComponents();
 

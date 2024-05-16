@@ -1,14 +1,13 @@
 import {
   ApplicationRef,
   Component,
-  ComponentFactoryResolver,
   ElementRef,
   Injector,
   NgModule,
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 import { DefaultConfig } from '../lib/config';
 import { ContentType } from '../lib/models';
@@ -37,7 +36,6 @@ export class TestComponent {}
 
 @NgModule({
   declarations: [TestComponent, TemplateRefTestComponent],
-  entryComponents: [TestComponent]
 })
 export class TemplateRefTestModule {}
 
@@ -48,19 +46,18 @@ describe('@ Toppy', () => {
   let appRef, compFact, inj;
   const config = DefaultConfig;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [TemplateRefTestModule],
       declarations: [],
-      providers: [ApplicationRef, ComponentFactoryResolver, Injector]
+      providers: [ApplicationRef, Injector]
     }).compileComponents();
 
     templateRefCompFixture = TestBed.createComponent(TemplateRefTestComponent);
     templateRefComp = templateRefCompFixture.componentInstance;
-    toppy = TestBed.get(Toppy);
-    appRef = TestBed.get(ApplicationRef);
-    compFact = TestBed.get(ComponentFactoryResolver);
-    inj = TestBed.get(Injector);
+    toppy = TestBed.inject(Toppy);
+    appRef = TestBed.inject(ApplicationRef);
+    inj = TestBed.inject(Injector);
     spyOn(toppy, 'destroy').and.callThrough();
   }));
 

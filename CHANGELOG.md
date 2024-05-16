@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/MouradHM/toppy-ivy/compare/v1.0.2...v1.0.3) (2024-05-16)
+
+
+### Bug Fixes
+
+* updated readme ([d0341f0](https://github.com/MouradHM/toppy-ivy/commit/d0341f0936b8b42cdc1cbb02601f332f73df9f8c))
+
 ## [1.0.2](https://github.com/MouradHM/toppy-ivy/compare/v1.0.1...v1.0.2) (2024-05-16)
 
 

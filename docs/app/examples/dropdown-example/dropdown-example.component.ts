@@ -5,7 +5,8 @@ import { RelativePosition, Toppy, ToppyControl } from '../../../../projects/topp
 @Component({
   selector: 'app-dropdown-example',
   templateUrl: './dropdown-example.component.html',
-  styleUrls: ['./dropdown-example.component.scss']
+  styleUrls: ['./dropdown-example.component.scss'],
+  standalone: false
 })
 export class DropdownExampleComponent implements OnInit {
   @ViewChild('el') el: ElementRef;

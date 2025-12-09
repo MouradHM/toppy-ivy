@@ -1,8 +1,7 @@
 import {
   ApplicationRef,
-  ComponentFactory,
-  ComponentFactoryResolver,
   ComponentRef,
+  createComponent,
   Injector,
   ViewContainerRef,
   ViewRef
@@ -26,12 +25,10 @@ export class ToppyControl {
 
   private viewEl: HTMLElement;
   private isOpen = false;
-  private compFac: ComponentFactory<ToppyComponent>;
   private die: Subject<1> = new Subject();
 
   constructor(
     private appRef: ApplicationRef, 
-    private compResolver: ComponentFactoryResolver,
     private injector: Injector
   ) {
     this.updateTextContent.subscribe(content => {
@@ -128,8 +125,9 @@ export class ToppyControl {
 
   private attach(): void {
     /* create component */
-    this.compFac = this.compResolver.resolveComponentFactory(ToppyComponent);
-    this.compRef = this.compFac.create(this.injector);
+    this.compRef = createComponent(ToppyComponent, {
+      environmentInjector: this.appRef.injector
+    });
     this.comp = this.compRef.instance;
 
     /* assign props */
@@ -140,7 +138,7 @@ export class ToppyControl {
     /* attach view */
     this.hostView = this.compRef.hostView;
     this.appRef.attachView(this.hostView);
-    this.viewEl = (this.hostView as any).rootNodes[0];
+    this.viewEl = this.compRef.location.nativeElement;
     BodyEl!.appendChild(this.viewEl);
   }
 

@@ -24,8 +24,11 @@
             "tsConfig": "docs/tsconfig.app.json",
             "assets": ["docs/favicon.ico", "docs/assets"],
             "styles": ["docs/styles/root.scss", "node_modules/prismjs/themes/prism.css"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules"]
+            },
             "scripts": [
-              "node_modules/marked/lib/marked.js",
+              "node_modules/marked/marked.min.js",
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-css.min.js",
               "node_modules/prismjs/components/prism-typescript.min.js",
@@ -151,5 +154,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

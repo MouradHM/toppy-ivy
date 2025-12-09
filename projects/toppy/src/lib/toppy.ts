@@ -1,4 +1,4 @@
-import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
+import { ApplicationRef, Injectable, Injector } from '@angular/core';
 import { DefaultConfig } from './config';
 import { ContentData, ContentProps, ContentType, Inputs, InsidePlacement, TID, ToppyConfig } from './models';
 import { GlobalPosition } from './position';
@@ -45,7 +45,7 @@ export class Toppy {
       [
         {
           provide: ToppyControl,
-          deps: [ApplicationRef, ComponentFactoryResolver, Injector]
+          deps: [ApplicationRef, Injector]
         }
       ],
       this.injector

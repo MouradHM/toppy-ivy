@@ -8,7 +8,7 @@
 <p><strong><code>Step 2:</code></strong> Add module in your angular app</p>
 <pre><code class="hljs language-typescript"><span class="hljs-keyword">import</span> &#123; ToppyModule &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'toppy'</span>;
 
-<span class="hljs-meta">@NgModule</span>(&#123;
+<span class="hljs-meta">&#64;NgModule</span>(&#123;
   declarations: [AppComponent],
   imports: [BrowserModule, ToppyModule],
   bootstrap: [AppComponent]
@@ -16,12 +16,12 @@
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppModule &#123;&#125;
 </code></pre>
 <p><strong><code>Step 3:</code></strong> Use Toppy in any component</p>
-<pre><code class="hljs language-typescript"><span class="hljs-meta">@Component</span>(&#123;
+<pre><code class="hljs language-typescript"><span class="hljs-meta">&#64;Component</span>(&#123;
   selector: <span class="hljs-string">'app-root'</span>,
   template: <span class="hljs-string">'&#x3C;div #el>Click me&#x3C;/div>'</span>
 &#125;)
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppComponent &#123;
-  <span class="hljs-meta">@ViewChild</span>(<span class="hljs-string">'el'</span>, &#123; read: ElementRef &#125;)
+  <span class="hljs-meta">&#64;ViewChild</span>(<span class="hljs-string">'el'</span>, &#123; read: ElementRef &#125;)
   el: ElementRef;
 
   <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> _toppy: Toppy</span>) &#123;&#125;
@@ -61,7 +61,7 @@
   .create();
 </code></pre>
 <p><strong>Using component</strong></p>
-<pre><code class="hljs language-typescript"><span class="hljs-meta">@Component</span>(&#123;
+<pre><code class="hljs language-typescript"><span class="hljs-meta">&#64;Component</span>(&#123;
   template: <span class="hljs-string">'&#x3C;div>Hello&#x3C;/div>'</span>
 &#125;)
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> HelloComponent &#123;&#125;
@@ -74,7 +74,7 @@
 <p><strong>Using TemplateRef</strong></p>
 <pre><code class="hljs language-html" id="tpl>Hello"><span class="hljs-tag">&#x3C;<span class="hljs-name">ng-template</span> #<span class="hljs-attr">tpl</span>></span>Hello world!<span class="hljs-tag">&#x3C;/<span class="hljs-name">ng-template</span>></span>
 </code></pre>
-<pre><code class="hljs language-typescript"><span class="hljs-meta">@ViewChild</span>(<span class="hljs-string">'tpl'</span>) tpl:TemplateRef&#x3C;<span class="hljs-built_in">any</span>>;
+<pre><code class="hljs language-typescript"><span class="hljs-meta">&#64;ViewChild</span>(<span class="hljs-string">'tpl'</span>) tpl:TemplateRef&#x3C;<span class="hljs-built_in">any</span>>;
 
 <span class="hljs-keyword">this</span>.overlay = <span class="hljs-keyword">this</span>._toppy
   .position(position)
@@ -133,7 +133,7 @@
 &#125;);
 </code></pre>
 <pre><code class="hljs language-typescript"><span class="hljs-comment">// host component</span>
-<span class="hljs-meta">@Component</span>(&#123;
+<span class="hljs-meta">&#64;Component</span>(&#123;
   template: <span class="hljs-string">'&#x3C;div>Some text&#x3C;/div>'</span>
 &#125;)
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> HelloComponent &#123;

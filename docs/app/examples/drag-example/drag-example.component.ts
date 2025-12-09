@@ -5,7 +5,8 @@ import { RelativePosition, Toppy, ToppyControl } from '../../../../projects/topp
 
 @Component({
   selector: 'app-drag-example',
-  templateUrl: './drag-example.component.html'
+  templateUrl: './drag-example.component.html',
+  standalone: false
 })
 export class DragExampleComponent implements OnInit {
   pos1 = 0;

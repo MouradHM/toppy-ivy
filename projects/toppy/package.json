@@ -1,7 +1,7 @@
 {
   "name": "toppy-ivy",
   "version": "0.0.1",
-  "description": "Overlay library for Angular 7+ compatible with Ivy",
+  "description": "Overlay library for Angular 19+ compatible with Ivy",
   "keywords": [
     "angular",
     "dropdown",
@@ -26,7 +26,7 @@
     "email": "mourad.hamoumamar@gmail.com"
   },
   "peerDependencies": {
-    "@angular/common": "^17.3.8",
-    "@angular/core": "^17.3.8"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
   }
 }

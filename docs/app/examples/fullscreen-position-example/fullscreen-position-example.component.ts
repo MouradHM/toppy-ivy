@@ -4,7 +4,8 @@ import { HeroScreenComponent } from '../../host-components/hero-screen/hero-scre
 
 @Component({
   selector: 'app-fullscreen-position-example',
-  templateUrl: './fullscreen-position-example.component.html'
+  templateUrl: './fullscreen-position-example.component.html',
+  standalone: false
 })
 export class FullscreenPositionExampleComponent implements OnInit {
   private _toppyControl: ToppyControl;

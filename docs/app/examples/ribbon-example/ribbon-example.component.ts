@@ -5,7 +5,8 @@ import { GlobalPosition, Toppy, ToppyControl } from '../../../../projects/toppy/
 @Component({
   selector: 'app-ribbon-example',
   templateUrl: './ribbon-example.component.html',
-  styleUrls: ['./ribbon-example.component.scss']
+  styleUrls: ['./ribbon-example.component.scss'],
+  standalone: false
 })
 export class RibbonExampleComponent implements OnInit {
   private _toppyControl: ToppyControl;

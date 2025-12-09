@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import * as format from 'date-fns/format';
+import { format } from 'date-fns';
 import { never, Observable, Subject, timer } from 'rxjs';
 import { map, switchMap, timeInterval } from 'rxjs/operators';
 import { OutsidePlacement } from '../../../../projects/toppy/src/lib/models';
@@ -7,7 +7,8 @@ import { RelativePosition, Toppy, ToppyControl } from '../../../../projects/topp
 
 @Component({
   selector: 'app-dynamic-text-example',
-  templateUrl: './dynamic-text-example.component.html'
+  templateUrl: './dynamic-text-example.component.html',
+  standalone: false
 })
 export class DynamicTextExampleComponent implements OnInit {
   @ViewChild('el') el: ElementRef;

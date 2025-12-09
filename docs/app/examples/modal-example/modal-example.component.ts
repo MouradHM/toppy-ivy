@@ -4,7 +4,8 @@ import { GlobalPosition, InsidePlacement, Toppy, ToppyControl } from 'toppy';
 @Component({
   selector: 'app-modal-example',
   templateUrl: './modal-example.component.html',
-  styleUrls: ['./modal-example.component.scss']
+  styleUrls: ['./modal-example.component.scss'],
+  standalone: false
 })
 export class ModalExampleComponent implements OnInit {
   _toppyControl: ToppyControl;

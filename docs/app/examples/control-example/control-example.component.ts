@@ -4,7 +4,8 @@ import { Toppy } from '../../../../projects/toppy/src/lib/toppy';
 @Component({
   selector: 'app-control-example',
   templateUrl: './control-example.component.html',
-  styleUrls: ['./control-example.component.scss']
+  styleUrls: ['./control-example.component.scss'],
+  standalone: false
 })
 export class ControlExampleComponent implements OnInit {
   constructor(private toppy: Toppy) {}

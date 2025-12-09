@@ -17,7 +17,8 @@ import { SimpleModalComponent } from '../../host-components/simple-modal/simple-
         font-weight: 500;
       }
     `
-  ]
+  ],
+  standalone: false
 })
 export class GlobalPositionExampleComponent implements OnInit {
   placements: { name: string; value: InsidePlacement }[] = [

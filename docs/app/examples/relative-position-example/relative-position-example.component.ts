@@ -7,7 +7,8 @@ import { ToppyControl } from '../../../../projects/toppy/src/lib/toppy-control';
   selector: 'app-relative-position-example',
   templateUrl: './relative-position-example.component.html',
   styles: [],
-  providers: [Toppy]
+  providers: [Toppy],
+  standalone: false
 })
 export class RelativePositionExampleComponent implements OnInit {
   @ViewChild('targetEl', { read: ElementRef })

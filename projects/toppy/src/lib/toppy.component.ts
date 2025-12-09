@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ComponentFactoryResolver,
   ElementRef,
   Injector,
   OnDestroy,
@@ -22,7 +21,8 @@ import { Bus, cssClass, toCss } from './utils';
   selector: 'toppy',
   templateUrl: './template.html',
   styleUrls: ['./styles.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class ToppyComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet: ViewContainerRef;
@@ -44,7 +44,6 @@ export class ToppyComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     public inj: Injector,
     private cd: ChangeDetectorRef,
-    private compResolver: ComponentFactoryResolver,
     private elRef: ElementRef
   ) {
     this.pinj = Injector;
@@ -72,7 +71,7 @@ export class ToppyComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setComponent(props) {
     const compRef = this.compOutlet.createComponent(
-      this.compResolver.resolveComponentFactory(this.content.data as any)
+      this.content.data as any
     );
     Object.assign(compRef.instance, props);
     compRef.changeDetectorRef.detectChanges();

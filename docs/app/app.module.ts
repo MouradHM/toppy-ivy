@@ -49,7 +49,6 @@ import { SubSectionComponent } from './utils/sub-section/sub-section.component';
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, ToppyModule],
   providers: [],
-  entryComponents: [TestComponent, TooltipComponent, SimpleModalComponent, SimpleListComponent, HeroScreenComponent],
   bootstrap: [AppComponent],
   exports: []
 })

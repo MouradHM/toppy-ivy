@@ -5,7 +5,8 @@ import { SimpleListComponent } from '../../host-components/simple-list/simple-li
 @Component({
   selector: 'app-slide-position-example',
   templateUrl: './slide-position-example.component.html',
-  styles: []
+  styles: [],
+  standalone: false
 })
 export class SlidePositionExampleComponent implements OnInit {
   placements: { name: string; value: SlidePlacement }[] = [

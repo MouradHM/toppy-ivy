@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/MouradHM/toppy-ivy/compare/v1.0.3...v1.1.0) (2025-12-09)
+
+
+### Features
+
+* Updated to Angular 19 ([969d569](https://github.com/MouradHM/toppy-ivy/commit/969d5695df71ffa7f83c365764825e56f974b227))
+
 ## [1.0.3](https://github.com/MouradHM/toppy-ivy/compare/v1.0.2...v1.0.3) (2024-05-16)
 
 

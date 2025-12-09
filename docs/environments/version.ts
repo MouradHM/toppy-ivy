@@ -1,1 +1,1 @@
-export const TOPPY_VERSION='1.0.3'
+export const TOPPY_VERSION='1.1.0'

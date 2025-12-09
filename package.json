@@ -1,6 +1,6 @@
 {
   "name": "toppy-app-ivy",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Overlay library for Angular 19+ compatible with Ivy",
   "keywords": [
     "angular",
@@ -33,7 +33,7 @@
     "lint": "ng lint",
     "ng": "ng",
     "postpublish": "node ./scripts/gh-pages.js",
-    "release": "semantic-release",
+    "release": "CI=true semantic-release",
     "start": "ng serve",
     "test": "npm run test:lib",
     "test:app": "ng test --project toppy-app",

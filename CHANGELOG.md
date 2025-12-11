@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/MouradHM/toppy-ivy/compare/v1.2.0...v1.2.1) (2025-12-11)
+
+
+### Bug Fixes
+
+* fix ([c38f079](https://github.com/MouradHM/toppy-ivy/commit/c38f079d411d1a1f0c6a0d5ef3d230eae5401e66))
+
 # [1.2.0](https://github.com/MouradHM/toppy-ivy/compare/v1.1.0...v1.2.0) (2025-12-11)
 
 

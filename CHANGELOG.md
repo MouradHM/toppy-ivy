@@ -3,6 +3,13 @@
 
 ### Features
 
+* portage angular 20. ([779aec3](https://github.com/MouradHM/toppy-ivy/commit/779aec386fbe061fdc7cf52e5d278393f23a9390))
+
+# [1.2.0](https://github.com/MouradHM/toppy-ivy/compare/v1.1.0...v1.2.0) (2025-12-11)
+
+
+### Features
+
 * portage angular 20. ([7d03fce](https://github.com/MouradHM/toppy-ivy/commit/7d03fce82b2d9e351110e53095a24b41b0e3e501))
 
 # [1.1.0](https://github.com/MouradHM/toppy-ivy/compare/v1.0.3...v1.1.0) (2025-12-09)
